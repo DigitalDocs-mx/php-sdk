@@ -1,0 +1,42 @@
+{
+    "name": "dDocs/php-sdk"
+    ,"description": "The sdk to connect de DigitalDocs services."
+    ,"version": "1.0.0-beta1"
+    ,"type": "library"
+    ,"keywords": [
+        "api"
+        ,"soap"
+        ,"digitalDocs"
+    ]
+    ,"require" : {
+        "php" : "^5.5 || ^7.0"
+    }
+    ,"homepage": "https://digitaldocs.com.mx"
+    ,"license": [
+        "OGTSL"
+        ,"MIT"
+    ]
+    ,"repositories": [
+        {
+            "type": "vcs"
+            ,"url": "https://github.com/DigitalDocs-mx/php-sdk"
+        }
+    ]
+    ,"authors": [
+        {
+            "name": "Jesus Alvarez"
+            ,"email": "ende.ro@live.com"
+            ,"role": "Developer, Arquitect"
+        }
+    ]
+    ,"support": {
+        "email": "soporte@digitaldocs.com.mx"
+    }
+    ,"autoload": {
+        "psr-4": {
+            "DigitalDocs\\": "src/"
+        }
+    }
+    ,"minimum-stability": "dev"
+    ,"prefer-stable": true
+}
