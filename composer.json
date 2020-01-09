@@ -1,5 +1,5 @@
 {
-    "name": "dDocs/php-sdk"
+    "name": "ddocs/php-sdk"
     ,"description": "The sdk to connect de DigitalDocs services."
     ,"version": "1.0.0-beta1"
     ,"type": "library"
