@@ -1,6 +1,6 @@
 <?php
 
-namespace DD;
+namespace DDocs;
 
 use Illuminate\Support\ServiceProvider;
 

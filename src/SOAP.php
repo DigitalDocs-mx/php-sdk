@@ -1,5 +1,5 @@
 <?php 
-namespace DD;
+namespace DDocs;
 
 use SoapClient;
 use SoapFault;
@@ -18,9 +18,9 @@ class SOAP {
 	 * @param string $usr: Usuario (Puede ser el RFC) para conectar al WS.
 	 * @param string $key: Llave para autenticar al WS.
 	 * @param string|null $wsdl=null: Url del web service.
-     * @return DD\SOAP
+     * @return DDocs\SOAP
 	 */
-    public static function getConection(string $usr, string $key, $wsdl=null) {
+    public static function getConection(string $usr, string $key, $wsdl=null):DDocs\SOAP {
         return new self($usr, $key, $wsdl);
     }
 
@@ -38,9 +38,9 @@ class SOAP {
      * @param string $pss: Contraseña para conectar al WS.
      * @param string $key: Llave para autenticar al WS.
      * @param string|null $wsdl=null: Url del web service.
-	 * @return DD\SOAP
+	 * @return DDocs\SOAP
      */
-	public function update(string $usr, string $pss, string $key, string $wsdl=null) {
+	public function update(string $usr, string $pss, string $key, string $wsdl=null):DDocs\SOAP {
         $this->usr = hash('sha256', self::$salt.$usr);
         $this->pss = hash('sha256', self::$salt.$pss);
         $this->key = hash('sha256', self::$salt.$key);
@@ -78,7 +78,7 @@ class SOAP {
     }
 
     /** Funciones disponibles en el WS.
-	 * @return string Funciones disponibles en el WS.
+	 * @return string[] Funciones disponibles en el WS.
 	 */
     public function getMethods():array {
 	    return $this->aws->__getFunctions();
@@ -86,7 +86,7 @@ class SOAP {
     /** Detalles sobre la ultima peticion realizada.
 	 * @return \StdClass {'headers', 'body'}
 	 */
-	public function getRequest() {
+	public function getRequest():\stdClass {
         return (Object)[
             'headers'=>$this->aws->__getLastRequestHeaders()
             ,'body'=>$this->aws->__getLastRequest()
@@ -95,7 +95,7 @@ class SOAP {
     /** Detalles sobre la ultima respuesta recibida.
 	 * @return \StdClass {'headers', 'body'}
 	 */
-    public function getResponse() {
+    public function getResponse():\stdClass {
         return (Object)[
             'headers'=>$this->aws->__getLastResponseHeaders()
             ,'body'=>$this->aws->__getLastResponse()

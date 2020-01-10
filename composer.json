@@ -37,13 +37,13 @@
     }
     ,"autoload": {
         "psr-4": {
-            "DigitalDocs\\": "src/"
+            "DDocs\\": "src/"
         }
     }
     ,"extra": {
         "laravel": {
             "providers": [
-                "DD\\DDServiceProvider"
+                "DDocs\\DDServiceProvider"
             ]
         }
     }
