@@ -66,7 +66,7 @@ $conection->getRequest();
 //
 //  ,body => string
 //      <?xml version="1.0" encoding="UTF-8"?>
-//    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><user>96a7e87c38abde431c4eb64bcedac3b2c65b36b6921b41bab67215d702957bb8</user><pss>96a7e87c38abde431c4eb64bcedac3b2c65b36b6921b41bab67215d702957bb8</pss><key>fdd347050b63f31b8542d5b8ac1ec5e7c43568312f6f327a9140fd783ed8bd26</key><name>Ale</name></SOAP-ENV:Body></SOAP-ENV:Envelope>
+//    <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><user>96a7e87c38abde431c4eb64bcedac3b2c65b36b6921b41bab67215d702957bb8</user><pss>96a7e87c38abde431c4eb64bcedac3b2c65b36b6921b41bab67215d702957bb8</pss><key>fdd347050b63f31b8542d5b8ac1ec5e7c43568312f6f327a9140fd783ed8bd26</key><name>visitor</name></SOAP-ENV:Body></SOAP-ENV:Envelope>
 //}
 
 $conection->getResponse();
