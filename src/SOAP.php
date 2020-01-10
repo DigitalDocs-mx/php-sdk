@@ -48,7 +48,7 @@ class SOAP {
         unset($pss);
         unset($key);
 
-        $this->wsdl = is_null($wsdl)?'https://digitaldocs.com.mx/storage/servidor.xml':$wsdl;
+        $this->wsdl = is_null($wsdl)?'https://digitaldocs.com.mx/storage/client-services.wsdl':$wsdl;
 
         libxml_disable_entity_loader(false);
         try {
@@ -71,31 +71,17 @@ class SOAP {
                 ])
             ]);
         } catch(SoapFault $e) {
-            throw new Exception('Can\'t connect to '.$this->wsdl.': '.$e);
+            throw new Exception('Can\'t connect to '.$this->wsdl.': '.$e->faultstring);
         }
 
         return $this;
     }
+
     /** Funciones disponibles en el WS.
 	 * @return string Funciones disponibles en el WS.
 	 */
-    public function getMethods() {
+    public function getMethods():array {
 	    return $this->aws->__getFunctions();
-    }
-    /** Llamada al metodo del WS.
-	 * @param string $action Nombre del metodo a llamar.
-	 * @param array $params Parametros a enviar.
-	 * @return any
-	 */
-	public function do($action, $params) {
-        if (empty($this->aws->{$action})) {
-            throw new Exception("Method {$action} not found in {$this->wsdl}");
-        }
-        try {
-            return $this->aws->__soapCall($action, [$this->usr, $this->pss, $this->key, $params]);
-        } catch (SoapFault $e) {
-            throw new Exception($e.PHPEOL.'Using:'.print_r($this->getRequest()));
-        }
     }
     /** Detalles sobre la ultima peticion realizada.
 	 * @return \StdClass {'headers', 'body'}
@@ -114,5 +100,21 @@ class SOAP {
             'headers'=>$this->aws->__getLastResponseHeaders()
             ,'body'=>$this->aws->__getLastResponse()
         ];
+    }
+
+    /** Llamada al metodo del WS.
+	 * @param string $action Nombre del metodo a llamar.
+	 * @param array $params Parametros a enviar.
+	 * @return any
+	 */
+	public function do($action, $params) {
+        try {
+            return $this->aws->__soapCall($action, [$this->usr, $this->pss, $this->key, $params]);
+        } catch (SoapFault $e) {
+            throw new Exception($e->faultstring.'____ Using:'
+                .print_r($this->getRequest(),1).PHP_EOL
+                .print_r($this->getResponse(),1)
+            );
+        }
     }
 }
