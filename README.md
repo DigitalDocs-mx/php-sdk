@@ -1,7 +1,7 @@
 PHP-SDK for DigitalDocs certified connection
 =======================
 
-Library for calling https://digitaldocs.com.mx/storage/servidor.xml WSDL.
+Library for calling https://digitaldocs.com.mx/storage/client-services.wsdl.
 
 Easy way to conect with Digital Docs WSDL implementing the security fields. Just install and call (Easy as DigitalDocs).
 
