@@ -20,7 +20,7 @@ composer require ddocs/php-sdk
 Usage
 =====
 ```php
-use DD\SOAP as DDSoap;
+use DDocs\SOAP as DDSoap;
 
 class Example {
     public function stamp(array $params) {
@@ -30,7 +30,7 @@ class Example {
         die(
             $conection->do('stamp', $params)
             //or just
-            ,\DD\SOAP::getConection($u, $k)->do('stamp', $params)
+            ,\DDocs\SOAP::getConection($u, $k)->do('stamp', $params)
         );
     }
 }
@@ -39,7 +39,7 @@ class Example {
 The 'do' method can fail, so we recomend use a try-catch block.
 ```php
 try {
-    \DD\SOAP::getConection($u, $k)->do('welcome', 'visitor');
+    \DDocs\SOAP::getConection($u, $k)->do('welcome', 'visitor');
     //"Hola : Bienvenido visitor a los servicios de timbrado DigitalDocs"
 } catch (\Exception $e) {
     echo 'Cant conect:'.$e->getMessage();

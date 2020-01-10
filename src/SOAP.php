@@ -20,7 +20,7 @@ class SOAP {
 	 * @param string|null $wsdl=null: Url del web service.
      * @return DDocs\SOAP
 	 */
-    public static function getConection(string $usr, string $key, $wsdl=null):DDocs\SOAP {
+    public static function getConection(string $usr, string $key, $wsdl=null):self {
         return new self($usr, $key, $wsdl);
     }
 
@@ -40,7 +40,7 @@ class SOAP {
      * @param string|null $wsdl=null: Url del web service.
 	 * @return DDocs\SOAP
      */
-	public function update(string $usr, string $pss, string $key, string $wsdl=null):DDocs\SOAP {
+	public function update(string $usr, string $pss, string $key, string $wsdl=null):self {
         $this->usr = hash('sha256', self::$salt.$usr);
         $this->pss = hash('sha256', self::$salt.$pss);
         $this->key = hash('sha256', self::$salt.$key);
